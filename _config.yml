@@ -1,0 +1,21 @@
+# Site settings
+title: .... . .-.. .-.. ---    .-- --- .-. .-.. -..
+header-img: img/home-bg.png
+email: haifeng.wu@jjay.cuny.edu
+copyright_name: irevived1
+description: > # this means to ignore newlines until "baseurl:"
+  Word Overflow
+baseurl: "" # the subpath of your site, e.g. /blog
+twitter_username: 
+github_username:  irevived1
+learn_profile: irevived1
+email_username: haifeng.wu@jjay.cuny.edu
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+paginate: 5
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+
+gems: [jekyll-paginate, jekyll-feed]

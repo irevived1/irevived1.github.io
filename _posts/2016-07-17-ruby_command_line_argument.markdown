@@ -1,15 +1,18 @@
 ---
 layout: post
 title:  "Ruby Command Line Argument"
-date:   2016-07-17 19:52:48 +0000
+date:   2016-07-17 15:52:48 -0400
 ---
 
+07.17.2016
 
- We have all used command line arguments one way or the other if have ever properly used the terminal.  In fact, bash commands are filled with commands with arguments.  For example:
+Ruby Command Line Argument
+
+We have all used command line arguments one way or the other if have ever properly used the terminal.  In fact, bash commands are filled with commands with arguments.  For example:
 
 	cd ../to/some/path
  
-*in this case, ‘../to/some/path is the argument for the cd command*
+*in this case, ‘../to/some/path' is the argument for the cd command*
 
 	cp file1.txt file2.txt
  

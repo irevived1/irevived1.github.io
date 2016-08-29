@@ -110,6 +110,7 @@ A well known method to solve the modular multiplicative inverse is to use extend
 
 We know that in RSA, we will be dealing with finding the inverse mod of two numbers that are relatively prime, in this case, the section for gcd(a,b) can be simplified to 1:
 
+
  # ax + by = 1
 
 We need to find x where x is a positive number.

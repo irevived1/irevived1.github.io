@@ -16,24 +16,17 @@ Today, I am not going to talk about the history or the background of RSA, nor th
 Before diving deep into RSA, it is very important to understand a few key concepts:
 
  - What is a common denominator.
-
  - What is greatest common divisor.
-
  - What is a prime number.
-
  - What does it mean to be relatively prime to a number.
-
  - Power modular arithmetic. 
-
  - Inverse modular arithmetic.
 
 
 **Common Denominator:** Mathematics. a number that is a multiple of all the denominators of a set of fractions.
- 
  *For Example:* 18 and 12, common denominators are: 6,3,2
 
 **Greatest Common Divisor:** is the largest positive integer that divides the numbers without a remainder.
- 
  *For Example:* 18 and 12, the greatest common divisor is 6
 
 <pre ><span style="color:#aeaeae;font-style:italic">#simple method to find the GCD using The Euclidean Algorithm</span>
@@ -70,7 +63,6 @@ Before diving deep into RSA, it is very important to understand a few key concep
 
 
 **Co-prime:** This one is a little bit tricky, is two integers a and b are said to be relatively prime, mutually prime, if the only positive integer that divides both of them is 1.
-
 *For example:* 1,3,5,7 are coprimes of 8. Where as 1,2,4,5,7,8 are coprimes of 9
 
 An interesting property for prime numbers: The number of coprimes for prime numbers will be the prime number - 1
@@ -109,11 +101,13 @@ Without the proper algorithm, this arithmetic will have the potential to overflo
 Lastly, the **Inverse modular arithmetic.** The Inverse modular arithmetic can be expressed by the following equation:
 
  # ax + by = gcd(a, b)
+
 A well known method to solve the modular multiplicative inverse is to use extended Euclidean algorithm.
 [https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm](http://)
 
 We know that in RSA, we will be dealing with finding the inverse mod of two numbers that are relatively prime, in this case, the section for gcd(a,b) can be simplified to 1:
  # ax + by = 1
+
 We need to find x where x is a positive number.
 
 This method can be a little bit difficult to code so I grabbed [https://rosettacode.org/](http://) for help:
@@ -141,8 +135,8 @@ This method can be a little bit difficult to code so I grabbed [https://rosettac
 </pre>
 
 
+# That took a while to explain what’s required to understand RSA.
 
- # That took a while to explain what’s required to understand RSA.
 
 Let’s use the methods above to demonstrate it, don’t forget to put **<span style="color:#e28964">require</span> <span style="color:#65b042">'prime'</span>** on top of your ruby file.
 

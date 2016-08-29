@@ -14,19 +14,19 @@ RSA Key Exchange Algorithm
 Today, I am not going to talk about the history or the background of RSA, nor the practicality of the algorithm itself.  Instead, we will be talking about the pure mathematical aspects of RSA, and maybe we’ll build some Ruby methods to clarify some of the key points as well.
 
 Before diving deep into RSA, it is very important to understand a few key concepts:
- * What is a common denominator.
- * What is greatest common divisor.
- * What is a prime number.
- * What does it mean to be relatively prime to a number.
- * Power modular arithmetic. 
- * Inverse modular arithmetic.
+ - What is a common denominator.
+ - What is greatest common divisor.
+ - What is a prime number.
+ - What does it mean to be relatively prime to a number.
+ - Power modular arithmetic. 
+ - Inverse modular arithmetic.
 
 
 **Common Denominator:** Mathematics. a number that is a multiple of all the denominators of a set of fractions.
-*For Example:* 18 and 12, common denominators are: 6,3,2
+ *For Example:* 18 and 12, common denominators are: 6,3,2
 
 **Greatest Common Divisor:** is the largest positive integer that divides the numbers without a remainder.
-*For Example:* 18 and 12, the greatest common divisor is 6
+ *For Example:* 18 and 12, the greatest common divisor is 6
 
 <pre ><span style="color:#aeaeae;font-style:italic">#simple method to find the GCD using The Euclidean Algorithm</span>
 <span style="color:#aeaeae;font-style:italic">#GCD method</span>
@@ -62,7 +62,7 @@ Before diving deep into RSA, it is very important to understand a few key concep
 
 
 **Co-prime:** This one is a little bit tricky, is two integers a and b are said to be relatively prime, mutually prime, if the only positive integer that divides both of them is 1.
-*For example:* 1,3,5,7 are coprimes of 8. Where as 1,2,4,5,7,8 are coprimes of 9
+ *For example:* 1,3,5,7 are coprimes of 8. Where as 1,2,4,5,7,8 are coprimes of 9
 
 An interesting property for prime numbers: The number of coprimes for prime numbers will be the prime number - 1
 For example, [1,2,3,4] are coprimes of 5 and [1,2,3,4,5,6] are coprimes 7

@@ -15,7 +15,6 @@ Today, I am not going to talk about the history or the background of RSA, nor th
 
 Before diving deep into RSA, it is very important to understand a few key concepts:
 
- - What is a common denominator.
  - What is greatest common divisor.
  - What is a prime number.
  - What does it mean to be relatively prime to a number.
@@ -23,12 +22,9 @@ Before diving deep into RSA, it is very important to understand a few key concep
  - Inverse modular arithmetic.
 
 
-**Common Denominator:** Mathematics. a number that is a multiple of all the denominators of a set of fractions.
-
- *For Example:* 18 and 12, common denominators are: 6,3,2
 
 **Greatest Common Divisor:** is the largest positive integer that divides the numbers without a remainder.
-
+ *For Example:* 18 and 12, common divisor are: 6,3,2
  *For Example:* 18 and 12, the greatest common divisor is 6
 
 <pre ><span style="color:#aeaeae;font-style:italic">#simple method to find the GCD using The Euclidean Algorithm</span>
@@ -214,6 +210,110 @@ puts <span style="color:#65b042">"<span style="color:#ddf2a4">\n</span>Alice the
 <span style="color:#e28964">else</span>
   puts <span style="color:#65b042">"Unable to reveal the secret"</span>
 <span style="color:#e28964">end</span>
+</pre>
+
+
+##############################Complete Code##############################
+
+<pre >require <span style="color:#65b042">'prime'</span>
+
+# inverse mod <span style="color:#99cf50">function</span> obtained from https:<span style="color:#aeaeae;font-style:italic">//rosettacode.org/wiki/Modular_inverse#Ruby</span>
+def extended_gcd(a, b)
+  last_remainder, remainder <span style="color:#e28964">=</span> a.abs, b.abs
+  x, last_x, y, last_y <span style="color:#e28964">=</span> <span style="color:#3387cc">0</span>, <span style="color:#3387cc">1</span>, <span style="color:#3387cc">1</span>, <span style="color:#3387cc">0</span>
+  <span style="color:#e28964">while</span> remainder <span style="color:#e28964">!</span><span style="color:#e28964">=</span> <span style="color:#3387cc">0</span>
+    last_remainder, (quotient, remainder) <span style="color:#e28964">=</span> remainder, last_remainder.divmod(remainder)
+    x, last_x <span style="color:#e28964">=</span> last_x <span style="color:#e28964">-</span> quotient<span style="color:#e28964">*</span>x, x
+    y, last_y <span style="color:#e28964">=</span> last_y <span style="color:#e28964">-</span> quotient<span style="color:#e28964">*</span>y, y
+  end
+
+  <span style="color:#e28964">return</span> last_remainder, last_x <span style="color:#e28964">*</span> (a <span style="color:#e28964">&lt;</span> <span style="color:#3387cc">0</span> ? <span style="color:#e28964">-</span><span style="color:#3387cc">1</span> : <span style="color:#3387cc">1</span>)
+end
+
+def invmod(e, et)
+  g, x <span style="color:#e28964">=</span> extended_gcd(e, et)
+  <span style="color:#e28964">if</span> g <span style="color:#e28964">!</span><span style="color:#e28964">=</span> <span style="color:#3387cc">1</span>
+    raise <span style="color:#65b042">'The maths are broken!'</span>
+  end
+  x <span style="color:#e28964">%</span> et
+end
+
+#power mod method
+def power_mod(base,exp,mod)
+  result <span style="color:#e28964">=</span> <span style="color:#3387cc">1</span>
+  <span style="color:#e28964">while</span> ( exp <span style="color:#e28964">></span> <span style="color:#3387cc">0</span> )
+    ( result <span style="color:#e28964">=</span> (result <span style="color:#e28964">*</span> base) <span style="color:#e28964">%</span> mod ) <span style="color:#e28964">if</span> exp <span style="color:#e28964">%</span> <span style="color:#3387cc">2</span> <span style="color:#e28964">==</span> <span style="color:#3387cc">1</span>
+    exp <span style="color:#e28964">=</span> exp <span style="color:#e28964">></span><span style="color:#e28964">></span> <span style="color:#3387cc">1</span>
+    base <span style="color:#e28964">=</span> (base<span style="color:#e28964">*</span>base) <span style="color:#e28964">%</span> mod
+  end
+  <span style="color:#e28964">return</span> result
+end
+
+#random prime generator
+def primeGen(num)
+  loop <span style="color:#e28964">do</span>
+    <span style="color:#e28964">if</span> num<span style="color:#e28964">%</span><span style="color:#3387cc">2</span><span style="color:#e28964">==</span><span style="color:#3387cc">0</span>
+      num <span style="color:#e28964">+</span><span style="color:#e28964">=</span> <span style="color:#3387cc">1</span>
+      next
+    elsif num<span style="color:#e28964">%</span><span style="color:#3387cc">3</span><span style="color:#e28964">==</span><span style="color:#3387cc">0</span> <span style="color:#e28964">||</span> num<span style="color:#e28964">%</span><span style="color:#3387cc">5</span><span style="color:#e28964">==</span><span style="color:#3387cc">0</span>
+      num <span style="color:#e28964">+</span><span style="color:#e28964">=</span> <span style="color:#3387cc">2</span>
+      next
+    <span style="color:#e28964">else</span>
+      <span style="color:#e28964">return</span> num <span style="color:#e28964">if</span> Prime.prime?(num)
+      num <span style="color:#e28964">+</span><span style="color:#e28964">=</span> <span style="color:#3387cc">1</span>
+    end
+  end
+end
+
+#GCD method
+def gcd(a,b)
+  <span style="color:#e28964">return</span> b <span style="color:#e28964">if</span> a<span style="color:#e28964">==</span><span style="color:#3387cc">0</span>
+  <span style="color:#e28964">return</span> gcd(b<span style="color:#e28964">%</span>a,a)
+end
+
+#get E from PHI
+def get_E(limit)
+  lower <span style="color:#e28964">=</span> limit <span style="color:#e28964">></span><span style="color:#e28964">></span> <span style="color:#3387cc">1</span>
+  loop <span style="color:#e28964">do</span>
+    e <span style="color:#e28964">=</span> rand(lower..limit)
+    <span style="color:#e28964">return</span> e <span style="color:#e28964">if</span> (gcd(e,limit)<span style="color:#e28964">==</span><span style="color:#3387cc">1</span>)
+  end
+end
+
+puts <span style="color:#65b042">"This is an RSA Example"</span>
+
+range <span style="color:#e28964">=</span> (<span style="color:#3387cc">99999999</span>..<span style="color:#3387cc">999999999</span>)
+p <span style="color:#e28964">=</span> primeGen(rand(range))
+q <span style="color:#e28964">=</span> primeGen(rand(range))
+
+puts <span style="color:#65b042">"Random P: #{p}"</span>
+puts <span style="color:#65b042">"Random Q: #{q}"</span>
+n <span style="color:#e28964">=</span> p<span style="color:#e28964">*</span>q
+puts <span style="color:#65b042">"N = #{n}"</span>
+phi <span style="color:#e28964">=</span> (p<span style="color:#e28964">-</span><span style="color:#3387cc">1</span>)<span style="color:#e28964">*</span>(q<span style="color:#e28964">-</span><span style="color:#3387cc">1</span>)
+puts <span style="color:#65b042">"PHI: #{phi}"</span>
+e <span style="color:#e28964">=</span> get_E(phi)
+puts <span style="color:#65b042">"The chosen E: #{e}"</span>
+d <span style="color:#e28964">=</span> invmod(e,phi)
+puts <span style="color:#65b042">"D = #{d}"</span>
+
+puts <span style="color:#65b042">"<span style="color:#ddf2a4">\n</span>Bob sends N and E to Alice."</span>
+m <span style="color:#e28964">=</span> <span style="color:#3387cc">12345678</span>
+puts <span style="color:#65b042">"Alice wants to send thsi message to Bob: #{m}"</span>
+puts <span style="color:#65b042">"Alice uses E and N to encrypt the message."</span>
+cipher <span style="color:#e28964">=</span> power_mod(m,e,n)
+puts <span style="color:#65b042">"Alice encrypts the message to: #{cipher}"</span>
+
+puts <span style="color:#65b042">"<span style="color:#ddf2a4">\n</span>Alice then sends her ciphered message back to Bob."</span>
+decipher <span style="color:#e28964">=</span>  power_mod(cipher,d,n)
+
+<span style="color:#e28964">if</span> m <span style="color:#e28964">==</span> decipher
+  puts <span style="color:#65b042">"Bob decrypts the message and revealed: #{decipher}"</span>
+<span style="color:#e28964">else</span>
+  puts <span style="color:#65b042">"Unable to reveal the secret"</span>
+end
+
+
 </pre>
 
 **No matter how many times you run the simulation, Bob will always get the same message that Alice wants to send!**

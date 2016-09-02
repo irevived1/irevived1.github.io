@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Flatiron Rails Assessment"
-date:   2016-09-02 01:19:30 +0000
+date:   2016-09-01 21:19:30 -0400
 ---
 
 
@@ -21,15 +21,18 @@ Nested forms and routes is really time consuming.  It took me a good amount of t
 
 **Challenges**
 
-I find it challenging to implement bootstrap, and CSS styling in my project.  I have never added any styling for my previous Rail labs.  I had to do my own research and start adding CSS myself.  I came across Twitter-Bootstrap-Rails from https://github.com/seyhunak/twitter-bootstrap-rails and it saved my life.  It’s got really nice documentations.  It comes in the form of a gem and all I had to do was include the list of gem names they provided, ran bundle install and there we go.  The rest is just generating with rails generator.  All the CSS and embedded ruby files come with predefined CSS classes and ids.  The hard part was I had to redo all my erb files.  I did not know by generating the stylings will overwrite my current erb files.  I had to make a copy and then generate the file, and manually change everything on my own.  It look me an hour and a half to change everything.  It was worth it though, not my website looks all nice and pretty.  I also learned it the hard way that I should always pick a theme for CSS first because I do the logic part of the project.
+I find it challenging to implement bootstrap, and CSS styling in my project.  I have never added any styling for my previous Rail labs.  I had to do my own research and start adding CSS myself.  I came across Twitter-Bootstrap-Rails from [https://github.com/seyhunak/twitter-bootstrap-rails](http://) and it saved my life.  It’s got really nice documentations.  It comes in the form of a gem and all I had to do was include the list of gem names they provided, ran bundle install and there we go.  The rest is just generating with rails generator.  All the CSS and embedded ruby files come with predefined CSS classes and ids.  The hard part was I had to redo all my erb files.  I did not know by generating the stylings will overwrite my current erb files.  I had to make a copy and then generate the file, and manually change everything on my own.  It look me an hour and a half to change everything.  It was worth it though, not my website looks all nice and pretty.  I also learned it the hard way that I should always pick a theme for CSS first because I do the logic part of the project.
 
 **Problems**
 
 There was this weird problem that I have encountered when I was dealing with *datalist* for html in this project.  A *datalist* gives all the available options in the form of the combination of a dropdown menu plus a flexible form.  My datalist will display all the previously *subjects* that have been created.  The users may select one of the option or create their own options.  It all worked fine except that the datalist was unable to show the last option from the database.  It displayed every options except for the very last column from the database.  The name of the last column was replaced by raw SQL output which is weird:
 
 Math
+
 Biology
+
 Geography
+
 < id: 1, name: “math”, …. > , < id: 2, name: “biology”, …. > , < id: 3, name: “math”, …………….>
 
 Obviously there was something wrong with something.  I was unable to pinpoint the exact problem.  So I modified the code and changed some stuff around.  As I was at the verge of giving up, I decided to manually iterate through all the subjects.  I set a variable with an array of all the subjects, made a boundary of the length of all the subjects and an iterator to iterate through all the subjects and display it on the datalist.  For some odd reason, doing it manually worked.  The last line of SQL data is no longer displaying.  The datalist is now displaying properly.  However, it is not an elegant solution because it is not recommended to put a too much logic in the views.  This odd problem still remains a mystery, there aren’t anything related problems that i could find on Google.

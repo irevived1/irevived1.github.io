@@ -28,16 +28,14 @@ I find it challenging to implement bootstrap, and CSS styling in my project.  I 
 There was this weird problem that I have encountered when I was dealing with *datalist* for html in this project.  A *datalist* gives all the available options in the form of the combination of a dropdown menu plus a flexible form.  My datalist will display all the previously *subjects* that have been created.  The users may select one of the option or create their own options.  It all worked fine except that the datalist was unable to show the last option from the database.  It displayed every options except for the very last column from the database.  The name of the last column was replaced by raw SQL output which is weird:
 
 Math
-
 Biology
-
 Geography
-
 < id: 1, name: “math”, …. > , < id: 2, name: “biology”, …. > , < id: 3, name: “math”, …………….>
 
 Obviously there was something wrong with something.  I was unable to pinpoint the exact problem.  So I modified the code and changed some stuff around.  As I was at the verge of giving up, I decided to manually iterate through all the subjects.  I set a variable with an array of all the subjects, made a boundary of the length of all the subjects and an iterator to iterate through all the subjects and display it on the datalist.  For some odd reason, doing it manually worked.  The last line of SQL data is no longer displaying.  The datalist is now displaying properly.  However, it is not an elegant solution because it is not recommended to put a too much logic in the views.  This odd problem still remains a mystery, there aren’t anything related problems that i could find on Google.
 
 **Conclusion**
+
 Overall, I had fun doing this assessment.  I feel like assessments are great for self-learning compared to labs.  Labs are well structured in a way which is hard for me to see the overall concept.  Students will most likely to tackle specs by specs which loses bigger picture.  Assessments are great when it comes to uniting all the things we have learned and putting it together, which compensates the flaws of the labs.  I have learnt valuable lessons such as generating layouts before coding the functionalities.  It would definitely save me a lot of time in the future.
 
 -irevived1

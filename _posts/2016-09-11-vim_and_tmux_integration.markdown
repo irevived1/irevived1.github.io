@@ -39,7 +39,7 @@ Not too bad, but could be better!
 
 [Vimux](https://github.com/benmills/vimux)
 
-Adding Plugins to Vim:
+# Adding Plugins to Vim:
 
 
 [Vundle](http://https://github.com/VundleVim/Vundle.vim) makes plugin installation as easy as GUI programs.  Simple run:

@@ -39,7 +39,8 @@ Not too bad, but could be better!
 
 [Vimux](https://github.com/benmills/vimux)
 
-# Adding Plugins to Vim:
+
+<font size="5em">Adding Plugins to Vim:</font>
 
 
 [Vundle](http://https://github.com/VundleVim/Vundle.vim) makes plugin installation as easy as GUI programs.  Simple run:

@@ -51,7 +51,8 @@ Lastly, you will have to check the connectivity of your setup by typing:
 `ssh your_user_name@your_public_ip_address -p your_custom_port_number`
 
 Enjoy!
-irevievd1
+
+-irevievd1
 
 Source: [https://help.ubuntu.com/lts/serverguide/openssh-server.html](https://help.ubuntu.com/lts/serverguide/openssh-server.html)
 [https://www.youtube.com/watch?v=EuIYabZS3ow](https://www.youtube.com/watch?v=EuIYabZS3ow)

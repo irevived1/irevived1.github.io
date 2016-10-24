@@ -82,11 +82,18 @@ DDDDD
 DSSOH
 ```
 
-
 Vigenere Cipher is no different than Shift Cipher, but on a steroid.  
 
-
 ![Vigenere Cipher](https://people.rit.edu/~epa4566/140/project3/media/vigSmall.gif)
+
+```
+CODING IS GREAT, I LOVE CODING
+APPLEA PP LEAPP  L EAPP LEAPPL
+------------------------------
+CDSTRG XH RVEPI, T POKT NSDXCR
+```
+
+Notice how in Vigenere Cipher, the key just repeats itself until the end of the input.  Whereas in Shift Cipher, the key is only one letter.
 
 
 

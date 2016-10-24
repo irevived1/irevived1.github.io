@@ -174,7 +174,7 @@ NGISGREATILOVECODINGCODI     O, 4.1% coincidence
 And so on...  
 ```
 
-Ideally, with a large text sample, all the shifts would be around 6.7 percent because this is plain english.  Our example above is nowhere close because it is sample is too small to be significant.  But you get the ideal of how to check letter of coincidence.
+Ideally, with a large text sample, all the shifts would be around 6.7 percent because this is plain english.  Our example above is nowhere close because it is sample is too small to be significant.  But you get the idea of how to check letter of coincidence.
 
 Once you get an encrypted Vigenere Cipher text, perform the letter of coincidence attack.  Shift the text however amount of times until you see the magic number, 6.7 percent.  The number of shift will determine the length of the key.
 

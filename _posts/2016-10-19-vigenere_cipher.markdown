@@ -27,8 +27,8 @@ C = (M + N) mod 26
 ```
 
 Decryption is performed similarly,
-```
 
+```
 M = (C - N) mod 26
 ```
 
@@ -131,6 +131,7 @@ M = (10 - 04 + 26 ) mod 26, M = 06  //adding 26 to prevent from going negative
 ```
 
 Congratulations, you have found the key!
+
 Cool, so we have learnt to decrypt Shift Cipher, what about Vigenere?
 Well, if you think about it, Vigenere is just multiple Shift Ciphers joined together.  
 
@@ -149,4 +150,44 @@ C    G    E    O    D        - encoded with A
 
 Only if we can get the key length, and then break it into different bins and perform letter of frequency attack, then we can get the key for Vigenere!
 
-Click [Here](https://vigenerecipher.herokuapp.com/vigenere.html)
+Again, thanks to some property of English, the letter of coincidence will be approximately 6.7 percent.  How does that help?
+
+It means that 6.7 percent will determine of a text is english.  If you calculate a text that is non-english for its coincidence, you can barely get to 4 percent.  
+
+
+```
+CODINGISGREATILOVECODING     Shift 0
+CODINGISGREATILOVECODING     100% coincidence
+------------------------------
+CODINGISGREATILOVECODING     Shift 1
+ODINGISGREATILOVECODINGC     0% coincidence
+------------------------------
+CODINGISGREATILOVECODING     Shift 2
+DINGISGREATILOVECODINGCO     0% coincidence
+------------------------------
+CODINGISGREATILOVECODING     Shift 3
+INGISGREATILOVECODINGCOD     I and G, 8.3% coincidence
+------------------------------
+CODINGISGREATILOVECODING     Shift 4
+NGISGREATILOVECODINGCODI     O, 4.1% coincidence
+------------------------------
+And so on...  
+```
+
+Ideally, with a large text sample, all the shifts would be around 6.7 percent because this is plain english.  Our example above is nowhere close because it is sample is too small to be significant.  But you get the ideal of how to check letter of coincidence.
+
+Once you get an encrypted Vigenere Cipher text, perform the letter of coincidence attack.  Shift the text however amount of times until you see the magic number, 6.7 percent.  The number of shift will determine the length of the key.
+
+Once you obtained the length of the key, divide the text into ‘N’ number of bins, where ‘N’ is the length of the key.  Now it's just the matter of breaking Caesar Cipher ‘N’ amount of times.
+
+Check out my [Vigenere Decryption Here](https://vigenerecipher.herokuapp.com/vigenere.html)!
+
+Have a nice day,
+-irevived1
+
+
+SOURCE: 
+[https://people.rit.edu/~epa4566/140/project3/basics.html](https://people.rit.edu/~epa4566/140/project3/basics.html)
+[https://en.wikipedia.org/wiki/Caesar_cipher](https://en.wikipedia.org/wiki/Caesar_cipher)
+
+

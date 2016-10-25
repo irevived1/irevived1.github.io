@@ -152,7 +152,7 @@ Only if we can get the key length, and then break it into different bins and per
 
 Again, thanks to some property of English, the letter of coincidence will be approximately 6.7 percent.  How does that help?
 
-It means that 6.7 percent will determine of a text is english.  If you calculate a text that is non-english for its coincidence, you can barely get to 4 percent.  
+It means that 6.7 percent will determine if a text is english.  If you calculate a text that is non-english for its coincidence, you can barely get to 4 percent.  
 
 
 ```
@@ -188,6 +188,7 @@ Have a nice day,
 
 
 SOURCE: 
+
 [https://people.rit.edu/~epa4566/140/project3/basics.html](https://people.rit.edu/~epa4566/140/project3/basics.html)
 [https://en.wikipedia.org/wiki/Caesar_cipher](https://en.wikipedia.org/wiki/Caesar_cipher)
 

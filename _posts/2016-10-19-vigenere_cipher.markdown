@@ -125,7 +125,7 @@ To unlock the mystery of the key, we’ll have to find the gap between K to E.
  13  14  15  16  17  18  19  20  21  22  23  24  25
 
 
-K = 10, E = 04, the difference is 06 !  The key must be H
+K = 10, E = 04, the difference is 06 !  The key must be G
 M = ( C -  N ) mod 26
 M = (10 - 04 + 26 ) mod 26, M = 06  //adding 26 to prevent from going negative
 ```
